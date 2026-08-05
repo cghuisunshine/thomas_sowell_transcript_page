@@ -308,6 +308,13 @@
       .paragraph {
         grid-template-columns: 1fr;
         gap: 8px;
+        padding-left: 12px;
+        border-left: 3px solid transparent;
+      }
+
+      .paragraph.is-active {
+        border-left-color: var(--accent);
+        box-shadow: none;
       }
 
       .time-button { justify-self: start; }

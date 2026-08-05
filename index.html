@@ -419,7 +419,7 @@
       <div class="transcript-heading">
         <div>
           <h2>Interactive transcript</h2>
-          <p>Click any word or timestamp to seek the original audio.</p>
+          <p>Click any word or timestamp to seek. Double-click transcript text to pause.</p>
         </div>
         <div class="transcript-tools">
           <div class="search-wrap">
@@ -581,7 +581,7 @@
       });
       audio.addEventListener('pause', () => {
         cancelAnimationFrame(animationFrame);
-        paint();
+        setActiveWord(-1);
       });
       audio.addEventListener('seeked', paint);
       audio.addEventListener('ended', () => {
@@ -594,6 +594,10 @@
       document.getElementById('transcriptStart').addEventListener('click', () => seekTo(data.transcriptStart));
       speed.addEventListener('change', () => { audio.playbackRate = Number(speed.value); });
       search.addEventListener('input', runSearch);
+      transcript.addEventListener('dblclick', (event) => {
+        if (!event.target.closest('.paragraph-text')) return;
+        audio.pause();
+      });
 
       document.addEventListener('keydown', (event) => {
         const tag = document.activeElement?.tagName;

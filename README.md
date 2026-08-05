@@ -1,0 +1,1 @@
+# thomas_sowell_transcript_page

@@ -44,7 +44,7 @@
     .page {
       width: min(100% - 40px, 1040px);
       margin: 0 auto;
-      padding: 48px 0 96px;
+      padding: 48px 0 172px;
     }
 
     header {
@@ -104,13 +104,16 @@
     .key-points li + li { margin-top: 10px; }
 
     .player-shell {
-      position: sticky;
-      top: 0;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
       z-index: 20;
-      margin: 0 -16px;
-      padding: 18px 16px 14px;
-      background: rgba(250, 248, 245, 0.97);
-      border-bottom: 1px solid var(--line);
+      margin: 0;
+      padding: 12px max(20px, calc((100vw - 1040px) / 2)) 10px;
+      background: var(--background);
+      border-top: 1px solid var(--line);
+      box-shadow: 0 -2px 8px rgba(41, 37, 36, 0.08);
     }
 
     .player-row {
@@ -306,7 +309,10 @@
       .page {
         width: min(100% - 28px, 1040px);
         padding-top: 30px;
+        padding-bottom: 238px;
       }
+
+      .player-shell { padding-inline: 14px; }
 
       .overview {
         grid-template-columns: 1fr;
